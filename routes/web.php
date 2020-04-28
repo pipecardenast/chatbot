@@ -12,5 +12,16 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    // return $router->app->version();
+    echo '<h1>Hello</h1>';
+});
+
+$router->get('/curencyExchange', 'BotController@curencyExchange');
+$router->post('/signUp', 'BotController@signUp');
+$router->post('/login', 'BotController@login');
+
+$router->group(['middleware' => ['auth']], function() use ($router) {
+    $router->put('/deposit', 'BotController@deposit');
+    $router->put('/withdraw', 'BotController@withdraw');
+    $router->get('/balance', 'BotController@balance');
 });
