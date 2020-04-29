@@ -16,11 +16,14 @@ $router->get('/', function () use ($router) {
     echo '<h1>Hello</h1>';
 });
 
-$router->get('/curencyExchange', 'BotController@curencyExchange');
-$router->post('/signUp', 'BotController@signUp');
-$router->post('/login', 'BotController@login');
+$router->group(['middleware' => ['type']], function() use ($router) {
+    $router->get('/exchange', 'BotController@currencyExchange');
+    $router->post('/signup', 'BotController@signup');
+    $router->post('/login', 'BotController@login');
+});
 
-$router->group(['middleware' => ['auth']], function() use ($router) {
+$router->group(['middleware' => ['auth', 'type']], function() use ($router) {
+    $router->put('/setcurrency', 'BotController@setCurrencyAccount');
     $router->put('/deposit', 'BotController@deposit');
     $router->put('/withdraw', 'BotController@withdraw');
     $router->get('/balance', 'BotController@balance');

@@ -78,6 +78,7 @@ $app->configure('app');
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'type' => App\Http\Middleware\TypeMiddleware::class,
 ]);
 
 /*
@@ -93,6 +94,7 @@ $app->routeMiddleware([
 
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\ConfigServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*

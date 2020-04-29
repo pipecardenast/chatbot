@@ -31,6 +31,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     ];
 
     public function accounts() {
-        return $this->hasMany('App\Account');
+        return $this->hasOne('App\Account');
     }
 }
