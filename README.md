@@ -1,28 +1,111 @@
 # chatbot
-The bot have two main responsibilities. First, it's able to receive specific orders from the user, and reply accordingly. Second, it allows user log-in, and hold a balance of transactions.
+This is the REST API that supports the Chat that is pending to be developed. This was develped with Lumen and all the dependencies were added into the composer.json file
+
+# Currency API Service
+Finally a free API service was used for the currencies convertion due to the suggested need a plan to do currency convertions. 
+https://free.currconv.com/api/v7
 
 
-# Lumen PHP Framework
+# Installaton
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+Please make sure the server meets the following requirements:
+* PHP >= 7.2
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+1. Run composer install
 
-## Official Documentation
+2. Rename the file .env.example in order to remove the .example part and add the DB connection values
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+3. To create the DB please run the command: php artisan migrate
 
-## Contributing
+4. To start a server for test purposes you can use the command: php -S localhost:8000 -t public
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+# Endpoints
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## GET /exchange
+GET /exchange HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+Content-Type: text/plain
 
-## License
+{
+	"from": "GBP",
+	"to": "COP",
+	"amount": "50"
+}
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## POST /signup
+POST /signup HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+Content-Type: text/plain
+
+{
+  "name": "Andres Cárdenas",
+  "email": "andres.cardenas@jobsity.com",
+  "password": "testing",
+  "currency": "COP"
+}
+
+## POST /login
+POST /login HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+Content-Type: text/plain
+
+{
+  "email": "felipe.cardenas@jobsity.com",
+  "password": "testing"
+}
+
+## PUT /setcurrency
+PUT /setcurrency HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
+Content-Type: text/plain
+
+{
+  "currency": "USD"
+}
+
+## PUT /deposit
+PUT /deposit HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
+Content-Type: text/plain
+
+{
+  "amount": "1000",
+  "currency": "USD"
+}
+
+## PUT /withdraw
+PUT /withdraw HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
+Content-Type: text/plain
+
+{
+  "amount": "1000",
+  "currency": "USD"
+}
+
+## GET /balance
+GET /balance HTTP/1.1
+Host: localhost:8000
+Content-Type: application/json
+Cache-Control: no-cache
+api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
+
