@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49b2511f1df920bfb53170f4945de0b0",
+    "content-hash": "b463f8e5d6edcb2fc937ca56ea6912a8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -109,65 +109,6 @@
                 }
             ],
             "time": "2020-04-15T15:59:35+00:00"
-        },
-        {
-            "name": "danielme85/laravel-cconverter",
-            "version": "v0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danielme85/laravel-cconverter.git",
-                "reference": "34e005c1af52882e9225c0044009895b64023c9a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danielme85/laravel-cconverter/zipball/34e005c1af52882e9225c0044009895b64023c9a",
-                "reference": "34e005c1af52882e9225c0044009895b64023c9a",
-                "shasum": ""
-            },
-            "require": {
-                "gerardojbaez/money": "^0.3",
-                "guzzlehttp/guzzle": "^6.0",
-                "illuminate/support": ">=5.4",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": ">=3.7"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "danielme85\\CConverter\\CConverterServiceProvider"
-                    ],
-                    "aliases": {
-                        "Currency": "danielme85\\CConverter\\CConverter"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "danielme85\\CConverter\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Mellum",
-                    "email": "mellum@gmail.com"
-                }
-            ],
-            "description": "Laravel 5 plug-in for currency conversion",
-            "keywords": [
-                "conversion",
-                "currency",
-                "finance",
-                "laravel",
-                "laravel-5"
-            ],
-            "time": "2019-09-23T14:04:50+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -483,54 +424,6 @@
                 }
             ],
             "time": "2020-04-28T08:47:37+00:00"
-        },
-        {
-            "name": "gerardojbaez/money",
-            "version": "v0.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gerardojbaez/money.git",
-                "reference": "1a29ca19899fad8ae559e9f2c982815ea21f8a6c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gerardojbaez/money/zipball/1a29ca19899fad8ae559e9f2c982815ea21f8a6c",
-                "reference": "1a29ca19899fad8ae559e9f2c982815ea21f8a6c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "5.4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Gerardojbaez\\Money\\": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gerardo Báez",
-                    "email": "gerardojbaez@gmail.com"
-                }
-            ],
-            "description": "A simple and cross-platform alternative to PHP money_format(). 91 currencies supported, including INR.",
-            "keywords": [
-                "currency",
-                "formatter",
-                "money",
-                "money_format"
-            ],
-            "time": "2018-02-24T18:59:00+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

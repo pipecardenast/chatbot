@@ -12,19 +12,20 @@
 */
 
 $router->get('/', function () use ($router) {
-    // return $router->app->version();
-    echo '<h1>Hello</h1>';
+    return $router->app->version();
 });
 
-$router->group(['middleware' => ['type']], function() use ($router) {
-    $router->get('/exchange', 'BotController@currencyExchange');
-    $router->post('/signup', 'BotController@signup');
-    $router->post('/login', 'BotController@login');
+$router->group(['middleware' => ['type'], 'prefix' => 'api/v1'], function() use ($router) {
+    $router->get('/users/exchange', 'UsersController@currencyExchange');
+    $router->post('/users/signup', 'UsersController@signup');
+    $router->post('/auth/login', 'AuthController@login');
 });
 
-$router->group(['middleware' => ['auth', 'type']], function() use ($router) {
-    $router->put('/setcurrency', 'BotController@setCurrencyAccount');
-    $router->put('/deposit', 'BotController@deposit');
-    $router->put('/withdraw', 'BotController@withdraw');
-    $router->get('/balance', 'BotController@balance');
+$router->group(['middleware' => ['jwt.auth', 'type'], 'prefix' => 'api/v1'], function() use ($router) {
+    $router->post('/auth/refresh', 'AuthController@refreshToken');
+    $router->get('/auth/logout', 'AuthController@logout');
+    $router->put('/accounts/currency', 'AccountsController@setCurrency');
+    $router->post('/transactions/deposit', 'TransactionsController@deposit');
+    $router->post('/transactions/withdraw', 'TransactionsController@withdraw');
+    $router->get('/transactions/balance', 'TransactionsController@getBalance');
 });

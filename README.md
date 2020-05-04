@@ -26,24 +26,16 @@ Please make sure the server meets the following requirements:
 # Endpoints
 
 ## GET /exchange
-GET /exchange HTTP/1.1
+GET /api/v1/users/exchange?from=GBP&to=COP&amount=110 HTTP/1.1
 Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
-Content-Type: text/plain
-
-{
-	"from": "GBP",
-	"to": "COP",
-	"amount": "50"
-}
 
 ## POST /signup
 POST /signup HTTP/1.1
 Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
-Content-Type: text/plain
 
 {
   "name": "Andres Cárdenas",
@@ -57,7 +49,6 @@ POST /login HTTP/1.1
 Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
-Content-Type: text/plain
 
 {
   "email": "felipe.cardenas@jobsity.com",
@@ -70,7 +61,6 @@ Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
 api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
-Content-Type: text/plain
 
 {
   "currency": "USD"
@@ -82,7 +72,6 @@ Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
 api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
-Content-Type: text/plain
 
 {
   "amount": "1000",
@@ -95,7 +84,6 @@ Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
 api-token: Qzpox4JAyvuUKQRPha7ZDX2cwDLUUwQxhzGrRqSMNTVGVE76YOIzb4cVRQHt
-Content-Type: text/plain
 
 {
   "amount": "1000",

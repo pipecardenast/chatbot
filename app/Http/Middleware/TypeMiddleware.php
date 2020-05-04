@@ -19,6 +19,6 @@ class TypeMiddleware
             return $next($request);
         }
 
-        return response()->json("{'error':'you are not authorized'}", 401);
+        return response()->json(['success' => false, 'error' =>'you are not authorized'], 401);
     }
 }
